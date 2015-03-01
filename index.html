@@ -82,43 +82,7 @@
 		position: relative;
 		float: left;
 	}	
-	.img-zuly{
-		background-image: url('img/NateKitch_Zuley_NewHeadshot.png');
-		background-size: 100%;
-	}
-	.img-slahi{
-		background-image: url('img/NateKitch_Slahi.png');
-		background-size: 100%;
-	}
-	.img-griggs{
-		background-image: url('img/NateKitch_Griggs.png');
-		background-size: 100%;
-	}
-	.img-johnson{
-		background-image: url('img/NateKitch_Johnson.png');
-		background-size: 100%;	
-	}
-	.img-boyd{
-		background-image: url('img/NateKitch_Boyd.png');
-		background-size: 100%;
-	}
-	.img-harris{
-		background-image: url('img/NateKitch_Harris.png');
-		background-size: 100%;
-	}
 
-	/*.myEvent { 
-		display: table-row; 
-	}*/
-
-	/*.myNumber {
-		width: 45px; 
-		padding-left: 5px; 
-		display: table-cell; 
-		font-size:30px; 
-		font-weight:400;
-		padding-top:1% 
-	}*/
 	.eventContent {
 		display: inline-block;  
 		line-height: 18px; 
@@ -176,12 +140,8 @@
   <input type="checkbox" name="hashtag" value="#DanFisher"> #DanFisher
 			</div><br>
         
- <div class='eventContent bin-2'>  
-  <input type="text" name="tweetbox" size="40" value="[Short-url here]" resize: "horizontal">
-        </div><br>
-        
  <div class='eventContent bin-3'> 
-   <textarea cols="50" rows="5">[Short-url here]</textarea>
+   <textarea class="tweetbox" cols="50" rows="5"> @thrasherxy [Short-url here]</textarea>
    </div><br>
 
         
@@ -190,13 +150,40 @@
 			</div><br>
         
 <div class='eventContent bin-4'><a href="https://twitter.com/share" class="twitter-share-button" data-text="This is the text they will" data-via="thrasherxy" data-size="large" data-related="GOP" data-count="none" data-hashtags="banadvancedplacement" data-dnt="true">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>        
+</div>        
         </form>
 		</div>
 	
 	</div>
 
+
+
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//interactive.guim.co.uk/libs/iframe-messenger/iframeMessenger.js"></script>
+
+<script type="text/javascript">
+	$('input').click(function(){
+		var inputValue = $(this).val();
+		var checkedOrNot = $(this).prop('checked');
+		console.log(inputValue, checkedOrNot)
+		if(checkedOrNot == true){
+			var content = $(".tweetbox").val();
+			content = content.replace(" [Short-url here]", "");			
+			$(".tweetbox").val( content + " " + inputValue + " [Short-url here]");			
+			console.log($(".tweetbox").val());
+		} else {
+			var content = $(".tweetbox").val();
+			$(".tweetbox").val(content.replace(" " + inputValue, ""));
+		}
+
+}) 
+// Write if/else statement to decide what to do if it's checked, or not checked.
+// if it's checked, add it to the textarea
+// if it's not checked, replace it with ""
+ 
+// Make sure that when someone clicks the tweet button, you have the most up-to-date tweet.
+</script>
 	<script>
     	iframeMessenger.enableAutoResize();
 	</script>
